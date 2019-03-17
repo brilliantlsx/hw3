@@ -1,0 +1,78 @@
+clc;clear all;
+%读取图像和调色板数据
+[s{1},map{1}]=imread('citywall1.bmp');
+[s{2},map{2}]=imread('citywall2.bmp');
+[s{3},map{3}]=imread('elain1.bmp');
+[s{4},map{4}]=imread('elain2.bmp');
+[s{5},map{5}]=imread('elain3.bmp');
+[s{6},map{6}]=imread('lena1.bmp');
+[s{7},map{7}]=imread('lena2.bmp');
+[s{8},map{8}]=imread('lena4.bmp');
+[s{9},map{9}]=imread('woman1.bmp');
+[s{10},map{10}]=imread('woman2.bmp');
+[y{1},map2{1}]=imread('citywall.bmp');
+[y{2},map2{2}]=imread('elain.bmp');
+[y{3},map2{3}]=imread('lena.bmp');
+[y{4},map2{4}]=imread('woman.bmp');
+%转换为灰度图
+for i=1:10
+    g{i}=ind2gray(s{i},map{i});
+end
+for i=1:4
+    h{i}=ind2gray(y{i},map2{i});
+end
+%对图片分别进行直方图均衡  
+for i=1:10
+    c{i}=histeq(g{i},256);
+end
+%分别显示
+figure(1)
+subplot(1,2,1)
+imshow(g{1});title('citywall1');
+subplot(1,2,2)
+imshow(c{1});title('citywall1直方图均衡');
+figure(2)
+subplot(1,2,1)
+imshow(g{2});title('citywall2');
+subplot(1,2,2)
+imshow(c{2});title('citywall2直方图均衡');
+figure(3)
+subplot(1,2,1)
+imshow(g{3});title('elain1');
+subplot(1,2,2)
+imshow(c{3});title('elain1直方图均衡');
+figure(4)
+subplot(1,2,1)
+imshow(g{4});title('elain2');
+subplot(1,2,2)
+imshow(c{4});title('elain2直方图均衡');
+figure(5)
+subplot(1,2,1)
+imshow(g{5});title('elain3');
+subplot(1,2,2)
+imshow(c{5});title('elain3直方图均衡');
+figure(6)
+subplot(1,2,1)
+imshow(g{6});title('lena1');
+subplot(1,2,2)
+imshow(c{6});title('lena1直方图均衡');
+figure(7)
+subplot(1,2,1)
+imshow(g{7});title('lena2');
+subplot(1,2,2)
+imshow(c{7});title('lena2直方图均衡');
+figure(8)
+subplot(1,2,1)
+imshow(g{8});title('lena4');
+subplot(1,2,2)
+imshow(c{8});title('lena4直方图均衡');
+figure(9)
+subplot(1,2,1)
+imshow(g{9});title('woman1');
+subplot(1,2,2)
+imshow(c{9});title('woman1直方图均衡');
+figure(10)
+subplot(1,2,1)
+imshow(g{10});title('woman2');
+subplot(1,2,2)
+imshow(c{10});title('woman2直方图均衡');

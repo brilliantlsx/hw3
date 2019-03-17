@@ -1,0 +1,52 @@
+clc;clear all;
+%读取图像和调色板数据
+[s{1},map{1}]=imread('citywall1.bmp');
+[s{2},map{2}]=imread('citywall2.bmp');
+[s{3},map{3}]=imread('elain1.bmp');
+[s{4},map{4}]=imread('elain2.bmp');
+[s{5},map{5}]=imread('elain3.bmp');
+[s{6},map{6}]=imread('lena1.bmp');
+[s{7},map{7}]=imread('lena2.bmp');
+[s{8},map{8}]=imread('lena4.bmp');
+[s{9},map{9}]=imread('woman1.bmp');
+[s{10},map{10}]=imread('woman2.bmp');
+[y{1},map2{1}]=imread('citywall.bmp');
+[y{2},map2{2}]=imread('elain.bmp');
+[y{3},map2{3}]=imread('lena.bmp');
+[y{4},map2{4}]=imread('woman.bmp');
+%转换为灰度图
+for i=1:10
+    g{i}=ind2gray(s{i},map{i});
+end
+for i=1:4
+    h{i}=ind2gray(y{i},map2{i});
+end
+%在3*3方格中绘制直方图
+subplot(4,4,1)
+imhist(h{1});title('citywall1');
+subplot(4,4,2)
+imhist(g{1});title('citywall1');
+subplot(4,4,3)
+imhist(g{2});title('citywall2');
+subplot(4,4,6)
+imhist(g{3});title('elain1');
+subplot(4,4,5)
+imhist(h{2});title('elain');
+subplot(4,4,7)
+imhist(g{4});title('elain2');
+subplot(4,4,8)
+imhist(g{5});title('elain3');
+subplot(4,4,9)
+imhist(h{3});title('lena');
+subplot(4,4,10)
+imhist(g{6});title('lena1');
+subplot(4,4,11)
+imhist(g{7});title('lena2');
+subplot(4,4,12)
+imhist(g{8});title('lena4');
+subplot(4,4,13)
+imhist(h{4});title('woman');
+subplot(4,4,14)
+imhist(g{9});title('woman1');
+subplot(4,4,15)
+imhist(g{10});title('woman2');

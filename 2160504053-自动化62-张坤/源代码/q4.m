@@ -1,0 +1,12 @@
+s{1}=imread('elain.bmp');
+s{2}=imread('woman.bmp');
+g1=adapthisteq(s{1},'NumTiles',[7,7]);
+g2=adapthisteq(s{2},'NumTiles',[7,7]);
+subplot(2,2,1)
+imshow(s{1});title('elain')
+subplot(2,2,2)
+imshow(g1);title('局部增强elain')
+subplot(2,2,3)
+imshow(s{2});title('woman')
+subplot(2,2,4)
+imshow(g2);title('局部增强woman')
